@@ -10,6 +10,7 @@ print("#   Welcome to the program   #")
 print("#                            #")
 print("#   type help for options    #")
 print("##############################")
+print('##############################')
 
 
 def func_loop():
