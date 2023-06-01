@@ -7,7 +7,9 @@ class Attendeelist:
         
         
     def addAttendee(self, firstname, lastname):
-        
+        if len(firstname)<= 9:
+                firstname = firstname + "\t"
+            
         new_person = person.Person(self.index, firstname, lastname)
         #new_person.set_name_and_id(self.index, firstname, lastname)
         self.attendees.append(new_person) 
@@ -28,8 +30,21 @@ class Attendeelist:
             print("No entries in list")
         
     def changeAttendee(self, id):
-        adann= 0
-
+        try:
+            attendee_to_be_changed = self.attendees[int(id)]
+            print("Enter new firstname")
+            fname = input()
+            print("Enter new last name")
+            lname = input()
+            if fname.__len__<= 9:
+                fname = fname + "\t"
+            
+            attendee_to_be_changed.firstname = fname
+            attendee_to_be_changed.lastname = lname
+            print("changed name of ID: " + str(attendee_to_be_changed.id) + " to " + attendee_to_be_changed.firstname + " " + attendee_to_be_changed.lastname)
+        except IndexError:
+            print("Attendee not found")
+        
     def deleteAttendee(self, id):
         
         try:
