@@ -36,7 +36,7 @@ class Attendeelist:
             fname = input()
             print("Enter new last name")
             lname = input()
-            if fname.__len__<= 9:
+            if len(fname)<= 9:
                 fname = fname + "\t"
             
             attendee_to_be_changed.firstname = fname

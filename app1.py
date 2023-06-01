@@ -25,7 +25,7 @@ def func_loop():
         id = input()
         b1.deleteAttendee(id)
         func_loop()
-    elif command=="chg":
+    elif command=="change":
         print("Enter pos to be changed")
         id = input()
         b1.changeAttendee(id)
