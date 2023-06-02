@@ -56,7 +56,7 @@ def func_loop():
         func_loop()
     elif command=="exit":
         print("See ya later, homeboy")
-        exit
+        exit()
     elif command=="help":
         print("listall      list all attendees")
         print("clearlist    clear all entries")
