@@ -1,4 +1,4 @@
-from attendeelist import Attendeelist
+from classes.attendeelist import Attendeelist
 import os
 
 
