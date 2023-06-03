@@ -7,9 +7,6 @@ class Attendeelist:
         
         
     def addAttendee(self, firstname, lastname):
-        if len(firstname)< 9:
-                firstname = firstname + "\t"
-            
         new_person = person.Person(self.index, firstname, lastname)
         #new_person.set_name_and_id(self.index, firstname, lastname)
         self.attendees.append(new_person) 
@@ -36,9 +33,6 @@ class Attendeelist:
             fname = input()
             print("Enter new last name")
             lname = input()
-            if len(fname)< 9:
-                fname = fname + "\t"
-            
             person_to_be_changed.set_name(fname,lname)
             
         except IndexError:

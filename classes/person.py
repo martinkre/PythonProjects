@@ -8,7 +8,10 @@ class Person:
         print(my_str)
         
     def get_name(self):
-        print("\t" + str(self.__id) + "\t" + self.__firstname + "\t" + self.__lastname)
+        if len(self.__firstname)< 9:
+            print("\t" + str(self.__id) + "\t" + self.__firstname + "\t\t" + self.__lastname)
+        else:
+            print("\t" + str(self.__id) + "\t" + self.__firstname + "\t" + self.__lastname)
     
     def set_name(self, firstname, lastname):
         self.__firstname = firstname
