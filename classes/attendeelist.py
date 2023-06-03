@@ -31,7 +31,7 @@ class Attendeelist:
         
     def changeAttendee(self, id):
         try:
-            x = self.attendees[int(id)]
+            person_to_be_changed = self.attendees[int(id)]
             print("Enter new firstname")
             fname = input()
             print("Enter new last name")
@@ -39,7 +39,7 @@ class Attendeelist:
             if len(fname)< 9:
                 fname = fname + "\t"
             
-            x.set_name(fname,lname)
+            person_to_be_changed.set_name(fname,lname)
             
         except IndexError:
             print("Attendee not found")
