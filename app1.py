@@ -64,6 +64,8 @@ def func_loop():
         print("filllist     automatically add a certain amount of attendees")
         print("help         shows this help message")
         print("exit         ends the program")
+        print("#######################################")
+
         func_loop()
     else:
         print("---unknown command---")

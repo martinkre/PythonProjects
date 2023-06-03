@@ -3,7 +3,7 @@ import classes.person as person
 class Attendeelist:
     def __init__(self):
         self.attendees = []
-        self.index = 8001
+        self.index = 8008601
         
         
     def addAttendee(self, firstname, lastname):
@@ -18,9 +18,7 @@ class Attendeelist:
             counter = 0
             my_iterator = iter(self.attendees)
             for x in my_iterator:
-                print(counter, end="\r")
-                person.Person.get_name(x)
-                
+                print(str(counter) + person.Person.get_formatted_name(x) + "\t" + str(x))
                 counter +=1
   
         else:
