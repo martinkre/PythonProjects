@@ -7,9 +7,6 @@ class Attendeelist:
         
         
     def addAttendee(self, firstname, lastname):
-        if len(firstname)< 9:
-                firstname = firstname + "\t"
-            
         new_person = person.Person(self.index, firstname, lastname)
         #new_person.set_name_and_id(self.index, firstname, lastname)
         self.attendees.append(new_person) 
@@ -21,9 +18,9 @@ class Attendeelist:
             counter = 0
             my_iterator = iter(self.attendees)
             for x in my_iterator:
+                print(counter, end="\r")
+                person.Person.get_name(x)
                 
-                str_name = ("{pos}\t{id}\t{fname}\t{lname}").format(pos=counter, id=x.id, fname=x.firstname, lname=x.lastname)
-                print(str_name)
                 counter +=1
   
         else:
@@ -31,17 +28,13 @@ class Attendeelist:
         
     def changeAttendee(self, id):
         try:
-            attendee_to_be_changed = self.attendees[int(id)]
+            person_to_be_changed = self.attendees[int(id)]
             print("Enter new firstname")
             fname = input()
             print("Enter new last name")
             lname = input()
-            if len(fname)< 9:
-                fname = fname + "\t"
+            person_to_be_changed.set_name(fname,lname)
             
-            attendee_to_be_changed.firstname = fname
-            attendee_to_be_changed.lastname = lname
-            print("changed name of ID: " + str(attendee_to_be_changed.id) + " to " + attendee_to_be_changed.firstname + " " + attendee_to_be_changed.lastname)
         except IndexError:
             print("Attendee not found")
         
