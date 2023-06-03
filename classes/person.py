@@ -8,6 +8,18 @@ class Person:
         print(my_str)
         
     def get_name(self):
+        str_output = self.__firstname + " " + self.__lastname
+        return str_output
+    
+    def get_formatted_name(self):
+        if len(self.__firstname)< 9:
+            str_output = "\t" + str(self.__id) + "\t" + self.__firstname + "\t\t" + self.__lastname
+        else:
+            str_output = "\t" + str(self.__id) + "\t" + self.__firstname + "\t" + self.__lastname
+        
+        return str_output
+
+    def print_name(self):
         if len(self.__firstname)< 9:
             print("\t" + str(self.__id) + "\t" + self.__firstname + "\t\t" + self.__lastname)
         else:
