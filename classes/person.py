@@ -3,15 +3,20 @@ class Person:
         self.__id = id
         self.__firstname = firstname
         self.__lastname = lastname
-        self.__age = 0
+        self.__age = 24
         my_str = "New Person added: ID: {sid} Name: {first} {last}".format(sid = id, first=firstname, last=lastname)
         print(my_str)
+
+    def __str__(self) -> str:
+        return self.__firstname
+    
+    
         
     def get_name(self):
         str_output = self.__firstname + " " + self.__lastname
         return str_output
     
-    def get_formatted_name(self):
+    def get_formatted_name(self) -> int:
         if len(self.__firstname)< 9:
             str_output = "\t" + str(self.__id) + "\t" + self.__firstname + "\t\t" + self.__lastname
         else:

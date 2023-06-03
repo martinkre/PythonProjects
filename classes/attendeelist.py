@@ -18,7 +18,7 @@ class Attendeelist:
             counter = 0
             my_iterator = iter(self.attendees)
             for x in my_iterator:
-                print(str(counter) + person.Person.get_formatted_name(x))
+                print(str(counter) + person.Person.get_formatted_name(x) + "\t" + str(x))
                 counter +=1
   
         else:
