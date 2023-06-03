@@ -2,7 +2,7 @@ import cv2
 from matplotlib import pyplot as plt
   
 # Opening image
-img = cv2.imread("image.jpg")
+img = cv2.imread("road.jpg")
   
 # OpenCV opens images as BRG 
 # but we want it as RGB We'll 

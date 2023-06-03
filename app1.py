@@ -38,7 +38,7 @@ def func_loop():
         print("How many times?")
         amount = input()
         for s in range(int(amount)):
-            b1.addAttendee("John\t", "Doe")
+            b1.addAttendee("John", "Doe")
         print("Automatic filling complete") 
         func_loop()
     elif command=="add":

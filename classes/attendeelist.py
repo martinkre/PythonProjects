@@ -7,7 +7,7 @@ class Attendeelist:
         
         
     def addAttendee(self, firstname, lastname):
-        if len(firstname)<= 9:
+        if len(firstname)< 9:
                 firstname = firstname + "\t"
             
         new_person = person.Person(self.index, firstname, lastname)
@@ -36,7 +36,7 @@ class Attendeelist:
             fname = input()
             print("Enter new last name")
             lname = input()
-            if len(fname)<= 9:
+            if len(fname)< 9:
                 fname = fname + "\t"
             
             attendee_to_be_changed.firstname = fname
