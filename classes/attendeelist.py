@@ -1,5 +1,7 @@
 import classes.person as person
 import string
+
+
 class Attendeelist:
     def __init__(self):
         self.attendees = []

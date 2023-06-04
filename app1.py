@@ -1,7 +1,13 @@
 from classes.attendeelist import Attendeelist
 import os
+import classes.database as db
+
+db.create_connection(r"C:\sqlite\db\pythonsqlite.db")
+
+
 
 b1 = Attendeelist()
+
 
 print("##############################")
 print("#   Welcome to the program   #")
@@ -14,7 +20,6 @@ def func_loop():
     global command
     command = input()
     if command=="clear":
-        #p1.get_age()
         os.system('cls')
         func_loop()
     elif command=="del":
