@@ -1,13 +1,7 @@
 from classes.attendeelist import Attendeelist
 import os
 
-
-
 b1 = Attendeelist()
-
-filepath = ("venv/Lib/site-packages/pip/__main__.py")
-
-#p1 = Person("John", "Doe", 36)
 
 print("##############################")
 print("#   Welcome to the program   #")
@@ -44,8 +38,14 @@ def func_loop():
     elif command=="add":
         print("Put in first name")
         firstname = input()
+        while Attendeelist.check_for_string(firstname) == False:
+            print("Name can not contain special characters or numbers! Please enter name again:")
+            firstname = input()
         print("Put in last name")
         lastname = input()
+        while Attendeelist.check_for_string(lastname) == False:
+            print("Name can not contain special characters or numbers! Please enter name again:")
+            lastname = input()
         b1.addAttendee(firstname, lastname)
         func_loop()
     elif command=="clearlist":

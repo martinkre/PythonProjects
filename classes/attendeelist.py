@@ -1,12 +1,18 @@
 import classes.person as person
-
+import string
 class Attendeelist:
     def __init__(self):
         self.attendees = []
         self.index = 8008601
         
+    def check_for_string(input: string) -> bool:
+            if not input.isalpha():
+                return False
+            else:
+                return True
         
     def addAttendee(self, firstname, lastname):
+        
         new_person = person.Person(self.index, firstname, lastname)
         #new_person.set_name_and_id(self.index, firstname, lastname)
         self.attendees.append(new_person) 
@@ -18,7 +24,7 @@ class Attendeelist:
             counter = 0
             my_iterator = iter(self.attendees)
             for x in my_iterator:
-                print(str(counter) + person.Person.get_formatted_name(x) + "\t" + str(x))
+                print(str(counter) + person.Person.get_formatted_name(x))
                 counter +=1
   
         else:
