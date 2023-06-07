@@ -116,6 +116,8 @@ class Database:
             fetched_id = self.__curs.fetchone()
             if fetched_id[0] == None:
                 self.__id = self.__START_ID
+            elif fetched_id[0] is not None:
+                self.__id = fetched_id[0] + 1
             else:
                 self.__id += 1
 
