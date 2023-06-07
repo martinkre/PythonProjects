@@ -20,6 +20,9 @@ def func_loop():
     elif command=="deldb":
         b1.deletedatabase()
         func_loop()
+    elif command=="opendb":
+        b1.open_database()
+        func_loop()
     elif command=="del":
         print("Enter pos to delete:")
         id = input()

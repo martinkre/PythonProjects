@@ -47,7 +47,8 @@ class Attendeelist:
     def deleteAttendee(self, id):
         self.__db.delete_attendee(id)
             
-            
+    def open_database(self):
+        self.__db.open_database()   
 
     def clearAttendees(self):
         self.__db.clear_table()

@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 from sqlite3 import OperationalError
+import classes.filedialog as fd
 
 class Database:
     __START_ID = 8008601
@@ -9,6 +10,8 @@ class Database:
     __curs = None
     __id = None
     def __init__(self):
+        print("Please choose database you want to open")
+        self.__DB_FILEPATH = fd.open_file()
         self.__conn = sqlite3.connect(self.__DB_FILEPATH)
         self.__curs = self.__conn.cursor()
         
@@ -27,7 +30,25 @@ class Database:
             print(er.args)
         
         
+    def open_database(self):
+        self.__DB_FILEPATH = fd.open_file()
+        self.__conn = sqlite3.connect(self.__DB_FILEPATH)
+        self.__curs = self.__conn.cursor()
         
+        print("Successfully connected to db")
+        
+        sql = "select max(id) from attendees;"
+        try:
+            self.__curs.execute(sql)
+            fetched_id = self.__curs.fetchone()
+            if fetched_id[0] == None:
+                self.__id = self.__START_ID
+            else:
+                self.__id = fetched_id[0]
+            print(self.__id)
+        except OperationalError as er:
+            print(er.args)
+
         
     def close_conn(self):
         self.__conn.close()
@@ -68,6 +89,10 @@ class Database:
 
     def init_db(self):
         print("Initializing Database")
+        print("Please choose location for db")
+        self.__DB_FILEPATH = fd.save_file()
+        self.__conn = sqlite3.connect(self.__DB_FILEPATH)
+        self.__curs = self.__conn.cursor()
         try:
             sql = '''CREATE TABLE ATTENDEES
                     (ID INT PRIMARY KEY,
