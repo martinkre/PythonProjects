@@ -70,7 +70,7 @@ class Database:
 
     def clear_table(self):
         try:
-            self.__curs.execute('''DELETE FROM ATTENDEES''')
+            self.__curs.execute('''DELETE FROM ATTENDEES ''')
             self.__conn.commit()
             self.__id = self.__START_ID
         except OperationalError as er:
@@ -136,7 +136,7 @@ class Database:
         cursor = self.__conn.cursor()
         sql = 'delete from ATTENDEES where ROWID=?'
         cursor.execute(sql, (ID,))
-
+        
         print("executed")
         self.__conn.commit()
 
