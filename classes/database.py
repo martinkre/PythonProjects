@@ -123,7 +123,7 @@ class Database:
 
             self.__curs.execute("INSERT INTO ATTENDEES \
                             VALUES (?,?, ?)" , (self.__id, fname,lname))
-            print(f"{fname} {lname} has been added to table")
+            print(f"{fname} {lname} has been added to table with ID {self.__id}")
         except Error as er:
             print(er.args)
             print("No such table. Database may not be initialized")
