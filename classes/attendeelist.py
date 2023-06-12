@@ -1,9 +1,12 @@
-import classes.person as person
+from classes.person import Person
 import string
+from classes.database import Database
+
+
 class Attendeelist:
     def __init__(self):
         self.attendees = []
-        self.index = 8008601
+        self.__db = Database()
         
     def check_for_string(input: string) -> bool:
             if not input.isalpha():
@@ -13,22 +16,21 @@ class Attendeelist:
         
     def addAttendee(self, firstname, lastname):
         
-        new_person = person.Person(self.index, firstname, lastname)
+        #new_person = person.Person(firstname, lastname)
         #new_person.set_name_and_id(self.index, firstname, lastname)
-        self.attendees.append(new_person) 
-        self.index = self.index + 1
+        #self.attendees.append(new_person) 
+        self.__db.insert_attendee(firstname, lastname)
+        
+        #self.index = self.index + 1
 
     def listAttendees(self):
-        if self.attendees:
-            print("Pos\tID\tFirst name\tLast name")
-            counter = 0
-            my_iterator = iter(self.attendees)
-            for x in my_iterator:
-                print(str(counter) + person.Person.get_formatted_name(x))
-                counter +=1
-  
-        else:
-            print("No entries in list")
+        self.__db.list_attendees()
+        
+    def initialize_db(self):
+        self.__db.init_db()  
+
+    def close_book(self):
+        self.__db.close_conn()
         
     def changeAttendee(self, id):
         try:
@@ -43,18 +45,18 @@ class Attendeelist:
             print("Attendee not found")
         
     def deleteAttendee(self, id):
-        
-        try:
-            self.attendees.__delitem__(int(id))
-            str_print = ("Removed Attendee {id}").format(id=id)
-            print(str_print)
-        except IndexError:
-            print("Attendee not found")
+        self.__db.delete_attendee(id)
             
-            
+    def open_database(self):
+        self.__db.open_database()   
 
     def clearAttendees(self):
-        self.attendees.clear()
-        print("List has been cleared")
+        self.__db.clear_table()
+    
+
+    def deletedatabase(self):
+        self.__db.clear_db()
+        
+        
 
     

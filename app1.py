@@ -1,21 +1,27 @@
 from classes.attendeelist import Attendeelist
 import os
 
-b1 = Attendeelist()
-
 print("##############################")
 print("#   Welcome to the program   #")
 print("#                            #")
 print("#   type help for options    #")
 print("##############################")
-
+b1 = Attendeelist()
 
 def func_loop():
     global command
     command = input()
     if command=="clear":
-        #p1.get_age()
         os.system('cls')
+        func_loop()
+    elif command=="initdb":
+        b1.initialize_db()
+        func_loop()
+    elif command=="deldb":
+        b1.deletedatabase()
+        func_loop()
+    elif command=="opendb":
+        b1.open_database()
         func_loop()
     elif command=="del":
         print("Enter pos to delete:")
@@ -36,13 +42,11 @@ def func_loop():
         print("Automatic filling complete") 
         func_loop()
     elif command=="add":
-        print("Put in first name")
-        firstname = input()
+        firstname = input("Put in first name: ")
         while Attendeelist.check_for_string(firstname) == False:
             print("Name can not contain special characters or numbers! Please enter name again:")
             firstname = input()
-        print("Put in last name")
-        lastname = input()
+        lastname = input("Put in last name: ")
         while Attendeelist.check_for_string(lastname) == False:
             print("Name can not contain special characters or numbers! Please enter name again:")
             lastname = input()
@@ -56,6 +60,7 @@ def func_loop():
         func_loop()
     elif command=="exit":
         print("See ya later, homeboy")
+        b1.close_book()
         exit()
     elif command=="help":
         print("listall      list all attendees")
