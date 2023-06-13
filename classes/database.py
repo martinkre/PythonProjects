@@ -5,19 +5,24 @@ import classes.filedialog as fd
 
 class Database:
     __START_ID = 8008601
-    __DB_FILEPATH = r"C:/sqlite/db/pythonsqlite.db"
+    __DB_FILEPATH = r"C:/sqlite/db/attendee.db"
     __conn = None
     __curs = None
     __id = None
     def __init__(self):
-        print("Please choose database you want to open")
-        self.__DB_FILEPATH = fd.open_file()
-        self.__conn = sqlite3.connect(self.__DB_FILEPATH)
-        self.__curs = self.__conn.cursor()
         
-        print("Successfully connected to db")
+        try:
+            #self.__DB_FILEPATH = fd.open_file()
+            self.check_db_location()
+
+            
+            
+        except TypeError as err:
+            print(err.args)
         
-        sql = "select max(id) from attendees;"
+        
+        
+        """sql = "select max(id) from attendees;"
         try:
             self.__curs.execute(sql)
             fetched_id = self.__curs.fetchone()
@@ -27,9 +32,37 @@ class Database:
                 self.__id = fetched_id[0]
             print(self.__id)
         except OperationalError as er:
-            print(er.args)
+            print(er.args)"""
         
         
+    def check_db_location(self):
+        comm = input("Do you want to choose database folder? (y/n): ")
+        if comm == "y":
+            print("Please choose database you want to open")
+            
+            self.open_database()
+        elif comm == "n":
+            self.__DB_FILEPATH = r"C:/sqlite/db/attendee.db"
+            self.__conn = sqlite3.connect(self.__DB_FILEPATH)
+            self.__curs = self.__conn.cursor()
+            print("Successfully connected to db")
+        
+            sql = "select max(id) from attendees;"
+            try:
+                self.__curs.execute(sql)
+                fetched_id = self.__curs.fetchone()
+                if fetched_id[0] == None:
+                    self.__id = self.__START_ID
+                else:
+                    self.__id = fetched_id[0]
+                print(f"Latest attendee has id: {self.__id}")
+            except OperationalError as er:
+                print(er.args)
+
+        else:
+            print("please enter y or n!")
+            self.check_db_location()
+
     def open_database(self):
         self.__DB_FILEPATH = fd.open_file()
         self.__conn = sqlite3.connect(self.__DB_FILEPATH)
@@ -45,7 +78,7 @@ class Database:
                 self.__id = self.__START_ID
             else:
                 self.__id = fetched_id[0]
-            print(self.__id)
+            print(f"Latest attendee has id: {self.__id}")
         except OperationalError as er:
             print(er.args)
 
@@ -145,17 +178,21 @@ class Database:
     def list_attendees(self):
         
         try:  
-            sql = "select * from attendees"
-            self.__curs.execute(sql)
-            if  len(self.__curs.fetchall()) <= 0:
+            sql = "select max(ROWID) from attendees"
+            curs = self.__curs
+            curs.execute(sql)
+            rowlength = curs.fetchone()
+            
+            if  len(curs.fetchall()) == None:
                 print("Table is empty")
                 
             else:
                 
-                print(len(self.__curs.fetchall()))
+                
+                
                 print("Pos\tID\tFirst name\t\tLast name")
                 sql = "SELECT ROWID, ID, FNAME, LNAME from ATTENDEES"
-                for row in self.__curs.execute(sql):
+                for row in curs.execute(sql):
                     rowid = row[0]
                     id = row[1]
                     fname = row[2]
@@ -165,6 +202,7 @@ class Database:
                     else:
                         my_string = f"{rowid}\t{id}\t{fname}\t\t\t{lname}"
                     print(my_string)
+                print(f"Total Attendeecount: {rowlength[0]}")
 
                 
         except Error as er:
