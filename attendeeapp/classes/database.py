@@ -128,7 +128,7 @@ class Database:
         self.__curs = self.__conn.cursor()
         try:
             sql = '''CREATE TABLE ATTENDEES
-                    (ID INT PRIMARY KEY,
+                    (ID             INTEGER,
                     FNAME           VARCHAR(20)    NOT NULL,
                     LNAME           VARCHAR(20)     NOT NULL);'''
             self.__curs.execute(sql)
@@ -169,6 +169,8 @@ class Database:
         cursor = self.__conn.cursor()
         sql = 'delete from ATTENDEES where ROWID=?'
         cursor.execute(sql, (ID,))
+        sql = 'REINDEX ATTENDEES'
+        cursor.execute(sql)
                
         print("executed")
         self.__conn.commit()
