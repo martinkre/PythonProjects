@@ -178,7 +178,7 @@ class Database:
     def list_attendees(self):
         
         try:  
-            sql = "select max(ROWID) from attendees"
+            sql = "select COUNT(ROWID) from attendees"
             curs = self.__curs
             curs.execute(sql)
             rowlength = curs.fetchone()
