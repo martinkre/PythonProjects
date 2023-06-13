@@ -1,5 +1,6 @@
 from classes.attendeelist import Attendeelist
 import os
+import time
 
 print("##############################")
 print("#   Welcome to the program   #")
@@ -61,6 +62,7 @@ def func_loop():
     elif command=="exit":
         print("See ya later, homeboy")
         b1.close_book()
+        time.sleep(3)
         exit()
     elif command=="help":
         print("############################################################################")
