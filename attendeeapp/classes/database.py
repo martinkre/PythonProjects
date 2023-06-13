@@ -169,7 +169,7 @@ class Database:
         cursor = self.__conn.cursor()
         sql = 'delete from ATTENDEES where ROWID=?'
         cursor.execute(sql, (ID,))
-        
+               
         print("executed")
         self.__conn.commit()
 

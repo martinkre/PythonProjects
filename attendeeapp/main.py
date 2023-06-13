@@ -9,31 +9,31 @@ print("#   type help for options    #")
 print("##############################")
 b1 = Attendeelist()
 
-def func_loop():
+def main():
     global command
     command = input()
     if command=="clear":
         os.system('cls')
-        func_loop()
+        main()
     elif command=="initdb":
         b1.initialize_db()
-        func_loop()
+        main()
     elif command=="deldb":
         b1.deletedatabase()
-        func_loop()
+        main()
     elif command=="opendb":
         b1.open_database()
-        func_loop()
+        main()
     elif command=="del":
         print("Enter pos to delete:")
         id = input()
         b1.deleteAttendee(id)
-        func_loop()
+        main()
     elif command=="change":
         print("Enter pos to be changed")
         id = input()
         b1.changeAttendee(id)
-        func_loop()
+        main()
     elif command=="filllist":
         print("Automatically filling list")
         print("How many times?")
@@ -41,7 +41,7 @@ def func_loop():
         for s in range(int(amount)):
             b1.addAttendee("John", "Doe")
         print("Automatic filling complete") 
-        func_loop()
+        main()
     elif command=="add":
         firstname = input("Put in first name: ")
         while Attendeelist.check_for_string(firstname) == False:
@@ -52,13 +52,13 @@ def func_loop():
             print("Name can not contain special characters or numbers! Please enter name again:")
             lastname = input()
         b1.addAttendee(firstname, lastname)
-        func_loop()
+        main()
     elif command=="clearlist":
         b1.clearAttendees()
-        func_loop()
+        main()
     elif command=="listall":
         b1.listAttendees()
-        func_loop()
+        main()
     elif command=="exit":
         print("See ya later, homeboy")
         b1.close_book()
@@ -73,6 +73,7 @@ def func_loop():
         print("#\tfilllist     automatically add a certain amount of attendees       #")
         print("#\topendb       open a database with file dialog                      #")
         print("#\tinitdb       initialize a new database with file dialog            #")
+        print("#\tdeldb        Deletes the database                                  #")
         print("#\tlistall      list all attendees                                    #")
         print("#\tdel          deletes an attende at row from listall                #")
         print("#\tclear        clear the screen                                      #")
@@ -81,10 +82,12 @@ def func_loop():
         print("#                                                                          #")
         print("############################################################################")
 
-        func_loop()
+        main()
     else:
         print("---unknown command---")
-        func_loop()
+        main()
 
 
-func_loop()
+if __name__ == "__main__":
+
+    main()
