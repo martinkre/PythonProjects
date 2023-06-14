@@ -11,7 +11,7 @@ b1 = Attendeelist()
 
 def main():
     global command
-    command = input()
+    command = input("Command: ")
     if command=="clear":
         os.system('cls')
         main()
@@ -65,22 +65,22 @@ def main():
         time.sleep(3)
         exit()
     elif command=="help":
-        print("############################################################################")
-        print("#                                                                          #")
-        print("#       help         shows this help message                               #")
-        print("#       clearlist    clear all entries                                     #")
-        print("#       add          add a single attendee                                 #")
-        print("#       filllist     automatically add a certain amount of attendees       #")
-        print("#       opendb       open a database with file dialog                      #")
-        print("#       initdb       initialize a new database with file dialog            #")
-        print("#       deldb        Deletes the database                                  #")
-        print("#       listall      list all attendees                                    #")
-        print("#       del          deletes an attende at row from listall                #")
-        print("#       clear        clear the screen                                      #")
-        print("#       change       change an attendees attributes (not implemented)      #")
-        print("#       exit         ends the program                                      #")
-        print("#                                                                          #")
-        print("############################################################################")
+        print("""############################################################################
+#                                                                          #
+#       help         shows this help message                               #
+#       clearlist    clear all entries                                     #
+#       add          add a single attendee                                 #
+#       filllist     automatically add a certain amount of attendees       #
+#       opendb       open a database with file dialog                      #
+#       initdb       initialize a new database with file dialog            #
+#       deldb        Deletes the database                                  #
+#       listall      list all attendees                                    #
+#       del          deletes an attende at row from listall                #
+#       clear        clear the screen                                      #
+#       change       change an attendees attributes (not implemented)      #
+#       exit         ends the program                                      #
+#                                                                          #
+############################################################################\n""")
 
         main()
     else:
