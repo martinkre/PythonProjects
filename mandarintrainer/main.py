@@ -1,15 +1,11 @@
-import csv
-import codecs
+import sys
+import classes.datachooser as dc
 
-# Specify the file path
-file_path = "mandb.csv"
+def main(args):
+    print(args)
+    dc.datachooser(args[1])
+    
 
-# Open the CSV file with proper encoding
-with codecs.open(file_path, "r", encoding="utf-8-sig") as file:
-    # Create a CSV reader object
-    reader = csv.reader(file)
 
-    # Iterate over each row in the CSV file
-    for row in reader:
-        # Print each row
-        print(row)
+if __name__ == "__main__":
+    main(sys.argv)
