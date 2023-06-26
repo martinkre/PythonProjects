@@ -2,7 +2,7 @@ import sys
 import classes.datachooser as dc
 
 def main(args):
-    print(args)
+    
     dc.datachooser(args[1])
     
 
