@@ -6,10 +6,10 @@ import codecs
 
 def datachooser(data):
     if data == "numbers":
-        file_path = "numdb.csv"
+        file_path = "./data/numdb.csv"
         dbchooser(file_path)
     elif data == "top100":
-        file_path = "mandb.csv"
+        file_path = "./data/mandb.csv"
         dbchooser(file_path)
     else:
         print("choose either numbers or top100")
