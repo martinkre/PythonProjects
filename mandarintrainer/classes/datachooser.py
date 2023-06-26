@@ -2,14 +2,19 @@ import csv
 import codecs
 
 # Specify the file path
-file_path = "mandb.csv"
+
 
 def datachooser(data):
     if data == "numbers":
         file_path = "numdb.csv"
+        dbchooser(file_path)
     elif data == "top100":
         file_path = "mandb.csv"
-    
+        dbchooser(file_path)
+    else:
+        print("choose either numbers or top100")
+        
+def dbchooser(file_path):
     # Open the CSV file with proper encoding
     with codecs.open(file_path, "r", encoding="utf-8-sig") as file:
         # Create a CSV reader object
