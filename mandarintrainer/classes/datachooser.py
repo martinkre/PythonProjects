@@ -1,9 +1,6 @@
 import csv
 import codecs
 
-# Specify the file path
-
-
 def datachooser(data):
     if data == "numbers":
         file_path = "./data/numdb.csv"
@@ -11,8 +8,11 @@ def datachooser(data):
     elif data == "top100":
         file_path = "./data/mandb.csv"
         dbchooser(file_path)
+    elif data == "weekdays":
+        file_path = "./data/weekdays.csv"
+        dbchooser(file_path)
     else:
-        print("choose either numbers or top100")
+        print("choose either numbers, top100 or weekdays")
         
 def dbchooser(file_path):
     # Open the CSV file with proper encoding
