@@ -2,9 +2,11 @@ import sys
 import classes.datachooser as dc
 
 def main(args):
-    
-    dc.datachooser(args[1])
-
+    try:
+        dc.datachooser(args[1])
+    except IndexError as er:
+        print(er.args[0])
+        print("you need to run with numbers, top100 or weekdays")
 #####################   
 #   !! DEBUG !!     #
 #####################
