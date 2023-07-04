@@ -7,6 +7,7 @@ Requirements:
     Python Runtime
     
         Pandas
+        PyQt5
 
 Example:
 
