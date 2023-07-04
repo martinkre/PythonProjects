@@ -21,6 +21,8 @@ You can run the main.py with the following commands:
 
     python -m main top100 -- shows the top 100 most used characters. It's not perfect, there are duplicates. I got it from ChatGPT, thanks, bro.
 
+    python -m main weekdays -- shows the weekdays. 
+
 
 ## Update:
 you can now pass startup arguments and choose between gui or cli. This update was to learn how to implement startup arguments for future projects.
