@@ -1,6 +1,7 @@
 import csv
 import codecs
 
+
 def datachooser(data):
     if data == "numbers":
         file_path = "./data/numdb.csv"
@@ -15,11 +16,14 @@ def datachooser(data):
         print("choose either numbers, top100 or weekdays")
         
 def dbchooser(file_path):
+
+    
+
     # Open the CSV file with proper encoding
     with codecs.open(file_path, "r", encoding="utf-8-sig") as file:
         # Create a CSV reader object
         reader = csv.reader(file)
-
+        
         # Iterate over each row in the CSV file
         for row in reader:
             # Print each row
