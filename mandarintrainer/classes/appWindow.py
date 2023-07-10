@@ -47,8 +47,10 @@ class MyApp(QMainWindow):
         for mb in self.containter:
             mb.show_edit_buttons()
 
+    def delete_button(self, id):
+        pass
 
-    
+
     def toggle_side_menu(self):
         sm = self.ui.SideMenu
         button = self.ui.actionSide_Menu
@@ -79,6 +81,8 @@ class MyApp(QMainWindow):
         self.button_add.setText("+")
         self.button_add.hide()
         self.ui.le_editor.hide()
+
+        
 
         # self.bb = MultiButton(Text="X", parent=self.ui.SideMenu)
         # self.ui.verticalLayout.insertWidget(3, self.bb)
@@ -122,15 +126,16 @@ class MyApp(QMainWindow):
         self.ui.pushButton_2.setCheckable(True)
         self.ui.pushButton_2.setChecked(True)
         self.ui.pushButton_2.setStyleSheet(".QPushButton:checked {\n"
-"    color: #054269;"
-"	background-color: #1973ab;"
-"}\n")
+                                            "    color: #054269;"
+                                            "	background-color: #1973ab;"
+                                            "}\n")
 
     def add_items(self, name):
         new_button = MultiButton(name, self.ui.SideMenu)
-        new_button.setText(name)
+        
         self.populate_containter(new_button)
         self.show_tiny_buttons()
+        new_button.new_button2.pressed.connect(lambda: new_button.hide())
         self.ui.verticalLayout.insertWidget(3, new_button)
         
 
@@ -157,7 +162,6 @@ class MyApp(QMainWindow):
                     ]
                     model.appendRow(items)
 
-        
 
         self.ui.thatTable.show()
         

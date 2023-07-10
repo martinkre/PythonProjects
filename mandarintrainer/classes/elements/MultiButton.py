@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, QPushButton, QHBoxLayout, QLabel, QLayout
+from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, QPushButton, QHBoxLayout, QLabel, QLayout, QSpacerItem, QSizePolicy
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import Qt
 from ui.MainWindow2 import Ui_MainWindow
@@ -15,20 +15,20 @@ class MultiButton(QPushButton, QHBoxLayout):
     def hide_edit_buttons(self):
         b1 = self.new_button
         b2 = self.new_button2
-        b3 = self.new_button3
+     
 
         b1.hide()
         b2.hide()
-        b3.hide()
+        
 
     def show_edit_buttons(self):
         b1 = self.new_button
         b2 = self.new_button2
-        b3 = self.new_button3
+        
 
         b1.show()
         b2.show()
-        b3.show()
+        
 
 
     def setupbt(self, Text):
@@ -64,7 +64,7 @@ class MultiButton(QPushButton, QHBoxLayout):
                       
     
     "        .QPushButton {\n"
-    "           min-width: 0.5em;\n"
+    "           min-width: 1em;\n"
     "           max-width: 10em; "
     "           padding: 1px;"
     "           font-size: 10px;"
@@ -77,17 +77,20 @@ class MultiButton(QPushButton, QHBoxLayout):
         
         self.vertLayout.setContentsMargins(1, 1, 5, 1)
         self.vertLayout.setSpacing(6)
+        spacerItem = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.vertLayout.addItem(spacerItem)
+
         self.new_button = QPushButton(self)
-        self.new_button.setText("XX")
+        self.new_button.setText("E")
         self.vertLayout.addWidget(self.new_button)
         self.new_button2 = QPushButton(self)
-        self.new_button2.setText("YY")
+        self.new_button2.setText("X")
         self.vertLayout.addWidget(self.new_button2)
-        self.new_button3 = QPushButton(self)
-        self.new_button3.setText("ZZ")
-        self.new_button3.pressed.connect(self.hide)
-        self.vertLayout.addWidget(self.new_button3)
+        
         self.hide_edit_buttons()
         self.show()
 
+    def delete(self):
         
+        self.destroy()
+

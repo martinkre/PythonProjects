@@ -39,7 +39,7 @@ class Ui_MainWindow(object):
 "    border-radius: 10px;\n"
 "    border: 1px solid #f0f1f2;\n"
 "    font: bold 14px;\n"
-"    min-width: 10em;\n"
+"    min-width: 5em;\n"
 "    padding: 6px;\n"
 "    color: #f0f1f2\n"
 "\n"
@@ -148,16 +148,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 9)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.lineEdit = QtWidgets.QLineEdit(self.le_editor)
-        self.lineEdit.setMinimumSize(QtCore.QSize(200, 0))
+        self.lineEdit.setMinimumSize(QtCore.QSize(99, 0))
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout_5.addWidget(self.lineEdit)
         self.pushButton_confirm = QtWidgets.QPushButton(self.le_editor)
-        self.pushButton_confirm.setMinimumSize(QtCore.QSize(25, 0))
+        self.pushButton_confirm.setMinimumSize(QtCore.QSize(31, 0))
         self.pushButton_confirm.setMaximumSize(QtCore.QSize(180, 16777215))
         self.pushButton_confirm.setObjectName("pushButton_confirm")
         self.horizontalLayout_5.addWidget(self.pushButton_confirm)
         self.pushButton_cancel = QtWidgets.QPushButton(self.le_editor)
-        self.pushButton_cancel.setMinimumSize(QtCore.QSize(25, 0))
+        self.pushButton_cancel.setMinimumSize(QtCore.QSize(31, 0))
         self.pushButton_cancel.setMaximumSize(QtCore.QSize(180, 16777215))
         self.pushButton_cancel.setObjectName("pushButton_cancel")
         self.horizontalLayout_5.addWidget(self.pushButton_cancel)
