@@ -30,6 +30,19 @@ class Ui_MainWindow(object):
         self.SideMenu.setMaximumSize(QtCore.QSize(391, 16777215))
         self.SideMenu.setStyleSheet(".QWidget {\n"
 "    background-color: #adbacc\n"
+"    \n"
+"}\n"
+"\n"
+".QLineEdit {\n"
+"    background-color: #333333;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border: 1px solid #f0f1f2;\n"
+"    font: bold 14px;\n"
+"    min-width: 10em;\n"
+"    padding: 6px;\n"
+"    color: #f0f1f2\n"
+"\n"
 "}\n"
 "\n"
 ".QPushButton {\n"
@@ -91,9 +104,67 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.pushButton_5)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
+        self.le_editor = QtWidgets.QWidget(self.SideMenu)
+        self.le_editor.setEnabled(True)
+        self.le_editor.setStyleSheet(".QPushButton {\n"
+"    background-color: #0d2d53;\n"
+"    color: #f0f1f2;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border: 1px solid #f0f1f2;\n"
+"    font: bold 14px;\n"
+"    min-width: 1em;\n"
+"    padding: 6px;\n"
+"    \n"
+"}\n"
+"\n"
+".QPushButton:hover {\n"
+"    color: #054269;\n"
+"    background-color: #1973ab;\n"
+"\n"
+"}\n"
+"\n"
+".QPushButton:pressed {\n"
+"    background-color: #054269;\n"
+"    color: #adbacc;\n"
+"\n"
+"}\n"
+"\n"
+".QPushButton:checked {\n"
+"    background-color: #40794f;\n"
+"    color: #f0f1f2;\n"
+"    border-color: #00cc00;\n"
+"    \n"
+"}\n"
+"\n"
+".QPushButton:checked:hover {\n"
+"    background-color: #40aa4f;\n"
+"    color: #f0f1f2;\n"
+"    border-color: #00ff00;\n"
+"    \n"
+"}")
+        self.le_editor.setObjectName("le_editor")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.le_editor)
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 9)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.lineEdit = QtWidgets.QLineEdit(self.le_editor)
+        self.lineEdit.setMinimumSize(QtCore.QSize(200, 0))
+        self.lineEdit.setObjectName("lineEdit")
+        self.horizontalLayout_5.addWidget(self.lineEdit)
+        self.pushButton_confirm = QtWidgets.QPushButton(self.le_editor)
+        self.pushButton_confirm.setMinimumSize(QtCore.QSize(25, 0))
+        self.pushButton_confirm.setMaximumSize(QtCore.QSize(180, 16777215))
+        self.pushButton_confirm.setObjectName("pushButton_confirm")
+        self.horizontalLayout_5.addWidget(self.pushButton_confirm)
+        self.pushButton_cancel = QtWidgets.QPushButton(self.le_editor)
+        self.pushButton_cancel.setMinimumSize(QtCore.QSize(25, 0))
+        self.pushButton_cancel.setMaximumSize(QtCore.QSize(180, 16777215))
+        self.pushButton_cancel.setObjectName("pushButton_cancel")
+        self.horizontalLayout_5.addWidget(self.pushButton_cancel)
+        self.verticalLayout.addWidget(self.le_editor)
         self.pushButton_4 = QtWidgets.QPushButton(self.SideMenu)
         self.pushButton_4.setCheckable(True)
-        self.pushButton_4.setChecked(True)
+        self.pushButton_4.setChecked(False)
         self.pushButton_4.setObjectName("pushButton_4")
         self.verticalLayout.addWidget(self.pushButton_4)
         self.pushButton = QtWidgets.QPushButton(self.SideMenu)
@@ -102,8 +173,8 @@ class Ui_MainWindow(object):
         self.verticalLayout.setStretch(0, 2)
         self.verticalLayout.setStretch(1, 2)
         self.verticalLayout.setStretch(2, 2)
-        self.verticalLayout.setStretch(4, 2)
         self.verticalLayout.setStretch(5, 2)
+        self.verticalLayout.setStretch(6, 2)
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
         self.horizontalLayout.addWidget(self.SideMenu)
         self.widget = QtWidgets.QWidget(self.centralwidget)
@@ -178,6 +249,8 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
         self.pushButton_3.setText(_translate("MainWindow", "PushButton"))
         self.pushButton_5.setText(_translate("MainWindow", "PushButton"))
+        self.pushButton_confirm.setText(_translate("MainWindow", "PushButton"))
+        self.pushButton_cancel.setText(_translate("MainWindow", "PushButton"))
         self.pushButton_4.setText(_translate("MainWindow", "PushButton"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
