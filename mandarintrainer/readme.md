@@ -24,6 +24,17 @@ You can run the main.py with the following commands:
     python -m main weekdays -- shows the weekdays. 
 
 
+## Update 2:
+Added a PyQt GUI for the Mandarin Trainer. The purpose was to understand the PyQt Libraries, create a responsive layout and creating a unique style, adding data from an outside database, creating a custom QtWidget and getting used to QtDesigner as well as programmatically designing GUIs or elements (MultiButton was entirely coded, while the GUI skeleton comes from QtDesigner) 
+
+
+The MultiButton lets the user edit the name of the Button or delete itself after entering the edit mode. The buttons and lineedit can be toggled via imported function 
+
+The first 3 buttons are standard pushbuttons which cannot be edited (in order to showcase the difference between QPushButton and MultiButton)
+
+Startup is the same as described below for the GUI version
+
+
 ## Update:
 you can now pass startup arguments and choose between gui or cli. This update was to learn how to implement startup arguments for future projects.
 
