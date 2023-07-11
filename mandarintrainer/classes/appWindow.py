@@ -96,7 +96,7 @@ class MyApp(QMainWindow):
 
         self.ui.pushButton_3.pressed.connect(lambda: self.load_data(fp_numbers,3))
         self.ui.pushButton_5.pressed.connect(lambda: self.load_data(fp_weekdays,5))
-        self.button_add.pressed.connect(lambda: self.add_items("test"))
+        self.button_add.pressed.connect(lambda: self.add_items("Unnamed"))
         
         self.ui.pushButton_4.pressed.connect(self.checker_button)
 
