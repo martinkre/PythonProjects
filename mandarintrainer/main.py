@@ -12,15 +12,7 @@ def main(args):
     except IndexError as er:
         print(er.args[0])
         print("No args given")
-#####################   
-#   !! DEBUG !!     #
-#####################
-#                   #
-#  DELETE BEFORE    #
-#   MERGING TO      #
-#     MAIN!         #
-#                   #
-#####################
+
 
 if __name__ == "__main__":
     arr = sys.argv
