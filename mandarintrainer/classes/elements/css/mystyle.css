@@ -1,0 +1,44 @@
+ .EditWidget {
+    margin-right: 3px;
+    
+ }
+ 
+ .QWidget .QPushButton {
+    min-width: 2em;
+    max-width: 30em;
+    margin: 1px;
+    padding: 1px;
+    font-size: 10px;
+    border-radius: 5px;
+ }
+
+QLineEdit line_edit {
+    background-color: #88673b;
+
+}
+
+.QWidget .MainButton {
+    background-color: #53350d;
+    color: #f0f1f2;
+    border-width: 2px;
+    border-radius: 10px;
+    border: 1px solid #f0f1f2;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;
+    
+}
+
+.MainButton:hover {
+    color: #88673b;
+    background-color: #1973ab;
+
+}
+
+.MainButton:pressed {
+    background-color: #53350d;
+    color: #adbacc;
+}
+.QLineEdit {
+      padding:1px;
+}   

@@ -3,6 +3,7 @@ from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import Qt
 from ui.MainWindow2 import Ui_MainWindow
 from classes.elements.MultiButton import MultiButton
+from classes.elements.MultiButton2 import Ui_Form
 
 import sys, csv, codecs
 
@@ -41,11 +42,21 @@ class MyApp(QMainWindow):
                 
     def hide_tiny_buttons(self):
         for mb in self.containter:
-            mb.hide_edit_buttons()
+            mb.edit_widget.hide_edit_buttons()
 
     def show_tiny_buttons(self):
         for mb in self.containter:
-            mb.show_edit_buttons()
+            mb.edit_widget.show_edit_buttons()
+
+    def deactivate_buttons(self):
+        for mb in self.containter:
+            mb.toggle_main_button(False)
+            pass
+
+    def activate_buttons(self):
+        for mb in self.containter:
+            mb.toggle_main_button(True)
+            pass
 
     def delete_button(self, id):
         pass
@@ -110,9 +121,8 @@ class MyApp(QMainWindow):
 
             self.ui.le_editor.hide()
             self.hide_tiny_buttons()
+            self.activate_buttons()
             
-            
-
         else:
             #self.ui.pushButton_4.setChecked = 1
             self.ui.pushButton_4.setText("Edit activated")
@@ -120,6 +130,8 @@ class MyApp(QMainWindow):
             self.ui.le_editor.show()
             #self.populate_containter()
             self.show_tiny_buttons()
+            self.deactivate_buttons()
+            
 
 
     def active_button(self):
@@ -135,8 +147,9 @@ class MyApp(QMainWindow):
         
         self.populate_containter(new_button)
         self.show_tiny_buttons()
-        new_button.new_button2.pressed.connect(lambda: new_button.hide())
+        #new_button.new_button2.pressed.connect(lambda: new_button.hide())
         self.ui.verticalLayout.insertWidget(3, new_button)
+        self.deactivate_buttons()
         
 
     def load_data(self, filepath, button_number):
