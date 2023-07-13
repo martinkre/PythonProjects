@@ -8,9 +8,10 @@ class MainButton(QPushButton):
         self.setText(name)
 
 class MyLineEdit(QLineEdit):
-    def __init__(self, name):
-        super().__init__()
+    def __init__(self, name, parent):
+        super().__init__(parent=parent)
         self.setText(name)
+        self.setAlignment(Qt.AlignCenter)
 
 class EditWidget(QWidget):
     def __init__(self, parent = None):
@@ -22,25 +23,24 @@ class EditWidget(QWidget):
         self.layout.setAlignment(Qt.AlignCenter)
         self.layout.setContentsMargins(0, 0, 0, 0)
         
-        self.spacerItem = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
-        self.layout.addItem(self.spacerItem)
+        # self.spacerItem = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        # self.layout.addItem(self.spacerItem)
         
-        self.layout.setSpacing(6)
-        self.le_text = QLineEdit()
-        self.le_text.setAlignment(Qt.AlignCenter)
-        self.buttonconfirm = QPushButton(self)
-        self.buttonconfirm.setText("Y")
+        # self.layout.setSpacing(6)
+        # self.le_text = QLineEdit()
+        # self.le_text.setAlignment(Qt.AlignCenter)
+        # self.buttonconfirm = QPushButton(self)
+        # self.buttonconfirm.setText("Y")
         #self.buttonconfirm.pressed.connect(lambda: self.change_itemname())
 
-        self.layout.addWidget(self.le_text)
-        self.layout.addWidget(self.buttonconfirm)
+        # self.layout.addWidget(self.le_text)
+        # self.layout.addWidget(self.buttonconfirm)
 
         self.spacerItem = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
         self.layout.addItem(self.spacerItem)
 
         self.new_button = QPushButton(self)
-        self.new_button.setText("Edit")
-        self.new_button.pressed.connect(lambda: self.show_lineedit())
+        self.new_button.setText("Save")
         self.layout.addWidget(self.new_button)
         self.new_button2 = QPushButton(self)
         self.new_button2.setText("X")
@@ -52,13 +52,14 @@ class EditWidget(QWidget):
 
 
     def hide_lineedit(self):
-        self.le_text.hide()
-        self.buttonconfirm.hide()
-
+        #self.le_text.hide()
+        #self.buttonconfirm.hide()
+        pass
     
     def show_lineedit(self):
-        self.le_text.show()
-        self.buttonconfirm.show()
+        #self.le_text.show()
+        #self.buttonconfirm.show()
+        pass
 
     def hide_edit_buttons(self):
         self.new_button.hide()
@@ -80,18 +81,24 @@ class MultiButton(QWidget):
         
         self.main_button = MainButton(Text, self)
         self.edit_widget = EditWidget(self)
+        self.line_edit = MyLineEdit(Text, self)
         
         #self.edit_widget.show()
         self.edit_widget.new_button2.pressed.connect(lambda: self.hide())
-        self.edit_widget.buttonconfirm.pressed.connect(lambda: self.change_itemname())
-        self.edit_widget.le_text.returnPressed.connect(lambda: self.change_itemname())             
-        self.edit_widget.le_text.setText(self.main_button.text())
+        #self.edit_widget.buttonconfirm.pressed.connect(lambda: self.change_itemname())
+        self.line_edit.returnPressed.connect(lambda: self.change_itemname())
+        self.edit_widget.new_button.pressed.connect(lambda: self.change_itemname())
+
+
+        #self.edit_widget.le_text.returnPressed.connect(lambda: self.change_itemname())             
+        #self.edit_widget.le_text.setText(self.main_button.text())
 
         self.layout = QGridLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)
         self.layout.addWidget(self.main_button, 1,1)
-        
+        self.layout.addWidget(self.line_edit, 1,1)
         self.layout.addWidget(self.edit_widget, 1,1, Qt.AlignRight)
+        self.line_edit.hide()
         #self.myoverlay = QHBoxLayout(self)
         #self.myoverlay.addWidget(self.edit_widget)
         self.edit_widget.raise_()
@@ -101,8 +108,13 @@ class MultiButton(QWidget):
         self.load_style()
 
 
-        
-        
+    def switch_button_with_lineedit(self, a1):
+        if a1 == True:
+            self.line_edit.show()
+            self.main_button.hide()
+        elif a1 == False:
+            self.line_edit.hide()
+            self.main_button.show()
 
     def load_style(self):
         with open("C:/Users/mk2/python/Project1/mandarintrainer/classes/elements/css/mystyle.css","r") as fh:
@@ -127,7 +139,7 @@ class MultiButton(QWidget):
     def toggle_main_button(self, a1):
         if a1 == True:
             self.main_button.setEnabled(True)
-        if a1 == False:
+        elif a1 == False:
             self.main_button.setDisabled(True)
             
 
@@ -169,9 +181,9 @@ class MultiButton(QWidget):
 
     def change_itemname(self):
         
-        new_name = self.edit_widget.le_text.text()
+        new_name = self.line_edit.text()
         self.main_button.setText(new_name)
-        self.edit_widget.hide_lineedit()
+        #self.switch_button_with_lineedit(False)
 
 
     def setup_edit_buttons(self):

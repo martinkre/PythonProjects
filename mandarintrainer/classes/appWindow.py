@@ -39,6 +39,8 @@ class MyApp(QMainWindow):
             #self.containter.clear()
         self.containter.append(i)
 
+
+    
                 
     def hide_tiny_buttons(self):
         for mb in self.containter:
@@ -58,6 +60,14 @@ class MyApp(QMainWindow):
             mb.toggle_main_button(True)
             pass
 
+    def activate_line_edit(self):
+        for mb in self.containter:
+            mb.switch_button_with_lineedit(True)
+
+    def deactivate_line_edit(self):
+        for mb in self.containter:
+            mb.switch_button_with_lineedit(False)
+    
     def delete_button(self, id):
         pass
 
@@ -88,7 +98,7 @@ class MyApp(QMainWindow):
         self.ui.pushButton_cancel.setText("Cancel")
 
         self.button_add = QPushButton(self.ui.SideMenu)
-        self.ui.verticalLayout.insertWidget(3, self.button_add)
+        self.ui.button_content.insertWidget(3, self.button_add)
         self.button_add.setText("+")
         self.button_add.hide()
         self.ui.le_editor.hide()
@@ -122,6 +132,7 @@ class MyApp(QMainWindow):
             self.ui.le_editor.hide()
             self.hide_tiny_buttons()
             self.activate_buttons()
+            self.deactivate_line_edit()
             
         else:
             #self.ui.pushButton_4.setChecked = 1
@@ -131,6 +142,7 @@ class MyApp(QMainWindow):
             #self.populate_containter()
             self.show_tiny_buttons()
             self.deactivate_buttons()
+            self.activate_line_edit()
             
 
 
@@ -144,12 +156,14 @@ class MyApp(QMainWindow):
 
     def add_items(self, name):
         new_button = MultiButton(name, self.ui.SideMenu)
-        
+        fp_weekdays = "./data/weekdays.csv"
+        new_button.main_button.pressed.connect(lambda: self.load_data(fp_weekdays, 7))
         self.populate_containter(new_button)
         self.show_tiny_buttons()
         #new_button.new_button2.pressed.connect(lambda: new_button.hide())
-        self.ui.verticalLayout.insertWidget(3, new_button)
+        self.ui.button_content.insertWidget(3, new_button)
         self.deactivate_buttons()
+        self.activate_line_edit()
         
 
     def load_data(self, filepath, button_number):

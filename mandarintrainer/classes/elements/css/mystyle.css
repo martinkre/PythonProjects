@@ -12,9 +12,15 @@
     border-radius: 5px;
  }
 
-QLineEdit line_edit {
+.MyLineEdit  {
     background-color: #88673b;
-
+    padding: 6px;
+    border-width: 2px;
+    border-radius: 10px;
+    border: 1px solid #f0f1f2;
+    font: bold 14px;
+    min-width: 10em;
+    color: #f0f1f2;
 }
 
 .QWidget .MainButton {

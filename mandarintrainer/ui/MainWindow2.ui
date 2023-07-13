@@ -110,7 +110,7 @@
           <number>9</number>
          </property>
          <item row="0" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout" stretch="2,2,2,0,0,2,2">
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,2,2">
            <property name="spacing">
             <number>6</number>
            </property>
@@ -130,31 +130,35 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QPushButton" name="pushButton_2">
-             <property name="contextMenuPolicy">
-              <enum>Qt::NoContextMenu</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>PushButton</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_3">
-             <property name="text">
-              <string>PushButton</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_5">
-             <property name="text">
-              <string>PushButton</string>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="button_content">
+             <item>
+              <widget class="QPushButton" name="pushButton_5">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_3">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_2">
+               <property name="contextMenuPolicy">
+                <enum>Qt::NoContextMenu</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <spacer name="verticalSpacer">
